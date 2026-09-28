@@ -1,68 +1,188 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
-<head>
 
+<head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sobre mí | Andrey Ricardo</title>
+    <title>Sobre mí | Andrey Ricardo · Full Stack Developer</title>
 
     <meta
         name="description"
-        content="Conoce más sobre Andrey Ricardo, Desarrollador de Software."
+        content="Conoce a Andrey Ricardo, Desarrollador de Software y Full Stack Developer de Colombia. Experiencia en Python, JavaScript, Java, desarrollo web, bases de datos y automatización."
     >
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="author" content="Andrey Ricardo">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Spanish">
+    <meta name="theme-color" content="#080808">
 
+    <!-- Canonical -->
+    <link
+        rel="canonical"
+        href="https://andrey-portafolio.vercel.app/sobre-mi.html"
+    >
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="512x512"
+        href="assets/img/favicon-512.png"
+    >
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="assets/img/favicon-32.png"
+    >
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="assets/img/favicon-16.png"
+    >
+    <link rel="alternate icon" href="assets/img/favicon.ico">
+    <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="assets/img/favicon-180.png"
+    >
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile">
+    <meta
+        property="og:title"
+        content="Sobre mí | Andrey Ricardo · Full Stack Developer"
+    >
+    <meta
+        property="og:description"
+        content="Conoce a Andrey Ricardo, Desarrollador de Software y Full Stack Developer especializado en desarrollo web, automatización y bases de datos."
+    >
+    <meta
+        property="og:url"
+        content="https://andrey-portafolio.vercel.app/sobre-mi.html"
+    >
+    <meta property="og:site_name" content="Andrey Ricardo">
+    <meta property="og:locale" content="es_CO">
+    <meta
+        property="og:image"
+        content="https://andrey-portafolio.vercel.app/assets/img/og-image.png"
+    >
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta
+        property="og:image:alt"
+        content="Andrey Ricardo - Desarrollador de Software y Full Stack Developer"
+    >
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta
+        name="twitter:title"
+        content="Sobre mí | Andrey Ricardo · Full Stack Developer"
+    >
+    <meta
+        name="twitter:description"
+        content="Conoce a Andrey Ricardo, Desarrollador de Software y Full Stack Developer especializado en desarrollo web, automatización y bases de datos."
+    >
+    <meta
+        name="twitter:image"
+        content="https://andrey-portafolio.vercel.app/assets/img/og-image.png"
+    >
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
+    <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
-
 </head>
+
 
 <body>
 
-    <div class="cursor"></div>
+    <div
+        class="cursor"
+        aria-hidden="true"
+    ></div>
 
 
     <!-- ================= HEADER ================= -->
 
     <header class="header">
 
-        <a href="index.html" class="logo">
+        <a
+            href="index.html"
+            class="logo"
+            aria-label="Andrey Ricardo - Inicio"
+        >
             AR<span>.</span>
         </a>
 
-        <nav class="nav">
+        <nav
+            class="nav"
+            aria-label="Navegación principal"
+        >
 
-            <a href="index.html" class="nav-link">
+            <a
+                href="index.html"
+                class="nav-link"
+            >
                 <span>00</span> Inicio
             </a>
 
-            <a href="blog.html" class="nav-link">
+            <a
+                href="blog.html"
+                class="nav-link"
+            >
                 <span>01</span> Blog
             </a>
 
-            <a href="sobre-mi.html" class="nav-link active">
+            <a
+                href="sobre-mi.html"
+                class="nav-link active"
+                aria-current="page"
+            >
                 <span>02</span> Sobre mí
             </a>
 
-            <a href="contacto.html" class="nav-link">
+            <a
+                href="contacto.html"
+                class="nav-link"
+            >
                 <span>03</span> Contacto
             </a>
 
         </nav>
 
-        <a href="contacto.html" class="header-button">
+        <a
+            href="contacto.html"
+            class="header-button"
+        >
             Empezar proyecto
             <span>↗</span>
         </a>
 
-        <button class="menu-button" id="menuButton">
+        <button
+            class="menu-button"
+            id="menuButton"
+            type="button"
+            aria-label="Abrir menú de navegación"
+            aria-controls="mobileMenu"
+            aria-expanded="false"
+        >
             ☰
         </button>
 
@@ -71,12 +191,26 @@
 
     <!-- ================= MENU MOVIL ================= -->
 
-    <div class="mobile-menu" id="mobileMenu">
+    <div
+        class="mobile-menu"
+        id="mobileMenu"
+    >
 
-        <a href="index.html">00 — Inicio</a>
-        <a href="blog.html">01 — Blog</a>
-        <a href="sobre-mi.html">02 — Sobre mí</a>
-        <a href="contacto.html">03 — Contacto</a>
+        <a href="index.html">
+            00 — Inicio
+        </a>
+
+        <a href="blog.html">
+            01 — Blog
+        </a>
+
+        <a href="sobre-mi.html">
+            02 — Sobre mí
+        </a>
+
+        <a href="contacto.html">
+            03 — Contacto
+        </a>
 
     </div>
 
@@ -328,7 +462,10 @@
                 Hablemos.
             </h2>
 
-            <a href="contacto.html" class="button button-primary">
+            <a
+                href="contacto.html"
+                class="button button-primary"
+            >
                 Contactarme
                 <span>↗</span>
             </a>
@@ -380,4 +517,6 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>
+```

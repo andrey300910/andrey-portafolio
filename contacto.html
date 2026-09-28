@@ -1,53 +1,176 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Contacto · Andrey Ricardo</title>
+    <title>Contacto | Iniciar proyecto · Andrey Ricardo</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta
+        name="description"
+        content="Contacta a Andrey Ricardo para desarrollar proyectos de software, aplicaciones web, automatización, bases de datos y soluciones Full Stack."
+    >
 
+    <meta name="author" content="Andrey Ricardo">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Spanish">
+    <meta name="theme-color" content="#080808">
+
+    <!-- Canonical -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="canonical"
+        href="https://andrey-portafolio.vercel.app/contacto.html"
+    >
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="512x512"
+        href="assets/img/favicon-512.png"
+    >
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="assets/img/favicon-32.png"
+    >
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="assets/img/favicon-16.png"
+    >
+    <link rel="alternate icon" href="assets/img/favicon.ico">
+    <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="assets/img/favicon-180.png"
+    >
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta
+        property="og:title"
+        content="Contacto | Iniciar proyecto · Andrey Ricardo"
+    >
+    <meta
+        property="og:description"
+        content="Contacta a Andrey Ricardo para desarrollar proyectos de software, aplicaciones web, automatización, bases de datos y soluciones Full Stack."
+    >
+    <meta
+        property="og:url"
+        content="https://andrey-portafolio.vercel.app/contacto.html"
+    >
+    <meta property="og:site_name" content="Andrey Ricardo">
+    <meta property="og:locale" content="es_CO">
+    <meta
+        property="og:image"
+        content="https://andrey-portafolio.vercel.app/assets/img/og-image.png"
+    >
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta
+        property="og:image:alt"
+        content="Andrey Ricardo - Desarrollador de Software y Full Stack Developer"
+    >
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta
+        name="twitter:title"
+        content="Contacto | Iniciar proyecto · Andrey Ricardo"
+    >
+    <meta
+        name="twitter:description"
+        content="Contacta a Andrey Ricardo para desarrollar proyectos de software, aplicaciones web, automatización, bases de datos y soluciones Full Stack."
+    >
+    <meta
+        name="twitter:image"
+        content="https://andrey-portafolio.vercel.app/assets/img/og-image.png"
+    >
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
+    <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
+
 
 <body>
 
     <!-- CURSOR -->
-    <div class="cursor"></div>
+
+    <div
+        class="cursor"
+        aria-hidden="true"
+    ></div>
 
 
-    <!-- HEADER -->
+    <!-- ================= HEADER ================= -->
+
     <header class="header">
 
-        <a href="index.html" class="logo">
+        <a
+            href="index.html"
+            class="logo"
+            aria-label="Andrey Ricardo - Inicio"
+        >
             AR<span>.</span>
         </a>
 
-        <nav class="nav">
 
-            <a href="index.html" class="nav-link">
+        <nav
+            class="nav"
+            aria-label="Navegación principal"
+        >
+
+            <a
+                href="index.html"
+                class="nav-link"
+            >
                 <span>00</span>
                 Inicio
             </a>
 
-            <a href="blog.html" class="nav-link">
+
+            <a
+                href="blog.html"
+                class="nav-link"
+            >
                 <span>01</span>
                 Blog
             </a>
 
-            <a href="sobre-mi.html" class="nav-link">
+
+            <a
+                href="sobre-mi.html"
+                class="nav-link"
+            >
                 <span>02</span>
                 Sobre mí
             </a>
 
-            <a href="contacto.html" class="nav-link active">
+
+            <a
+                href="contacto.html"
+                class="nav-link active"
+                aria-current="page"
+            >
                 <span>03</span>
                 Contacto
             </a>
@@ -68,6 +191,9 @@
             class="menu-button"
             id="menuButton"
             type="button"
+            aria-label="Abrir menú de navegación"
+            aria-controls="mobileMenu"
+            aria-expanded="false"
         >
             Menu
         </button>
@@ -75,7 +201,8 @@
     </header>
 
 
-    <!-- MOBILE MENU -->
+    <!-- ================= MOBILE MENU ================= -->
+
     <div
         class="mobile-menu"
         id="mobileMenu"
@@ -100,10 +227,12 @@
     </div>
 
 
-    <!-- CONTENIDO -->
+    <!-- ================= CONTENIDO ================= -->
+
     <main>
 
-        <!-- HERO -->
+
+        <!-- ================= HERO ================= -->
 
         <section class="page-hero">
 
@@ -111,16 +240,19 @@
                 03 / 100
             </div>
 
+
             <div>
 
                 <p class="eyebrow">
                     EMPEZAR PROYECTO
                 </p>
 
+
                 <h1>
                     Hablemos de
                     <span>tu proyecto.</span>
                 </h1>
+
 
                 <p>
                     Cuéntame qué tienes en mente. Completa este brief
@@ -133,16 +265,17 @@
         </section>
 
 
-        <!-- BRIEF -->
+        <!-- ================= BRIEF ================= -->
 
         <section class="brief-section">
 
             <div class="brief-container">
 
 
-                <!-- PROGRESO -->
+                <!-- ================= PROGRESO ================= -->
 
                 <div class="brief-progress">
+
 
                     <div
                         class="brief-progress-item active"
@@ -177,13 +310,14 @@
                 </div>
 
 
-                <!-- FORMULARIO -->
+                <!-- ================= FORMULARIO ================= -->
 
                 <form
                     id="projectBrief"
                     action="https://formspree.io/f/xnpnlqga"
                     method="POST"
                 >
+
 
                     <!-- CONFIGURACIÓN FORMSPREE -->
 
@@ -202,6 +336,7 @@
                         tabindex="-1"
                         autocomplete="off"
                         class="form-honeypot"
+                        aria-hidden="true"
                     >
 
 
@@ -214,17 +349,20 @@
                         id="step1"
                     >
 
+
                         <div class="brief-heading">
 
                             <span class="brief-code">
                                 C/01
                             </span>
 
+
                             <div>
 
                                 <h2>
                                     Sobre tu proyecto
                                 </h2>
+
 
                                 <p>
                                     Primero, cuéntame quién eres y
@@ -243,6 +381,7 @@
                             <label for="nombre">
                                 ¿Cómo te llamas?
                             </label>
+
 
                             <input
                                 type="text"
@@ -264,6 +403,7 @@
                                 ¿Dónde te respondo?
                             </label>
 
+
                             <input
                                 type="email"
                                 id="email"
@@ -283,6 +423,7 @@
                             <label>
                                 ¿Eres...?
                             </label>
+
 
                             <div class="option-grid">
 
@@ -317,6 +458,7 @@
 
                                 </label>
 
+
                             </div>
 
                         </div>
@@ -329,6 +471,7 @@
                             <label>
                                 ¿En qué puedo ayudarte?
                             </label>
+
 
                             <div class="option-grid project-options">
 
@@ -423,6 +566,7 @@
 
                                 </label>
 
+
                             </div>
 
                         </div>
@@ -435,6 +579,7 @@
                             <label for="descripcion">
                                 Cuéntame más
                             </label>
+
 
                             <textarea
                                 id="descripcion"
@@ -474,17 +619,20 @@
                         id="step2"
                     >
 
+
                         <div class="brief-heading">
 
                             <span class="brief-code">
                                 C/02
                             </span>
 
+
                             <div>
 
                                 <h2>
                                     Scope · presupuesto y tiempos
                                 </h2>
+
 
                                 <p>
                                     Esta información me ayudará a
@@ -503,6 +651,7 @@
                             <label>
                                 Presupuesto aproximado
                             </label>
+
 
                             <div class="option-grid budget-options">
 
@@ -567,6 +716,7 @@
 
                                 </label>
 
+
                             </div>
 
                         </div>
@@ -579,6 +729,7 @@
                             <label>
                                 ¿Cuándo te gustaría empezar?
                             </label>
+
 
                             <div class="option-grid time-options">
 
@@ -642,6 +793,7 @@
                                     </span>
 
                                 </label>
+
 
                             </div>
 
@@ -757,6 +909,7 @@
                                 <span>↗</span>
                             </button>
 
+
                         </div>
 
                     </div>
@@ -768,7 +921,7 @@
         </section>
 
 
-        <!-- CTA -->
+        <!-- ================= CTA ================= -->
 
         <section class="cta">
 
@@ -778,10 +931,12 @@
                     ¿PREFIERES HABLAR DIRECTAMENTE?
                 </p>
 
+
                 <h2>
                     También puedes
                     <span>encontrarme en GitHub.</span>
                 </h2>
+
 
                 <a
                     href="https://github.com/andrey300910"
@@ -800,7 +955,7 @@
     </main>
 
 
-    <!-- FOOTER -->
+    <!-- ================= FOOTER ================= -->
 
     <footer class="footer">
 
@@ -819,6 +974,7 @@
                 GitHub
             </a>
 
+
             <a
                 href="https://www.linkedin.com/in/andrey-ricardo-silva-8a6061210"
                 target="_blank"
@@ -826,6 +982,7 @@
             >
                 LinkedIn
             </a>
+
 
             <a
                 href="https://vercel.com/andrey300910s-projects"
@@ -843,4 +1000,6 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>
+```
