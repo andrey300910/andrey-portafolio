@@ -4,7 +4,6 @@
 
 const cursor = document.querySelector(".cursor");
 
-
 if (cursor) {
 
     document.addEventListener("mousemove", (event) => {
@@ -24,7 +23,6 @@ if (cursor) {
 const interactiveElements = document.querySelectorAll(
     "a, button, input, textarea, label"
 );
-
 
 interactiveElements.forEach((element) => {
 
@@ -55,6 +53,224 @@ interactiveElements.forEach((element) => {
 
 
 /* ==========================================
+   LLUVIA DIGITAL
+========================================== */
+
+const digitalRain = document.querySelector(".digital-rain");
+
+
+if (
+    digitalRain &&
+    digitalRain.tagName.toLowerCase() === "canvas"
+) {
+
+    const canvas = digitalRain;
+    const context = canvas.getContext("2d");
+
+    let width = 0;
+    let height = 0;
+
+    let fontSize = 14;
+    let columns = 0;
+
+    let drops = [];
+
+
+    /*
+       Caracteres utilizados para
+       la lluvia digital.
+    */
+
+    const characters =
+        "01ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz<>[]{}()/*+-=_";
+
+
+    /* ======================================
+       CONFIGURAR CANVAS
+    ====================================== */
+
+    function resizeRain() {
+
+        const devicePixelRatio =
+            Math.min(window.devicePixelRatio || 1, 2);
+
+
+        width = canvas.clientWidth;
+        height = canvas.clientHeight;
+
+
+        canvas.width =
+            Math.floor(width * devicePixelRatio);
+
+        canvas.height =
+            Math.floor(height * devicePixelRatio);
+
+
+        context.setTransform(
+            devicePixelRatio,
+            0,
+            0,
+            devicePixelRatio,
+            0,
+            0
+        );
+
+
+        fontSize =
+            Math.max(
+                12,
+                Math.min(
+                    18,
+                    width / 90
+                )
+            );
+
+
+        columns =
+            Math.ceil(
+                width / fontSize
+            );
+
+
+        drops =
+            Array.from(
+                {
+                    length: columns
+                },
+                () =>
+                    Math.random() *
+                    -(height / fontSize)
+            );
+
+    }
+
+
+    /* ======================================
+       DIBUJAR LLUVIA
+    ====================================== */
+
+    function drawRain() {
+
+        /*
+           Fondo transparente para permitir
+           que se vea el diseño del hero.
+        */
+
+        context.clearRect(
+            0,
+            0,
+            width,
+            height
+        );
+
+
+        context.font =
+            `${fontSize}px monospace`;
+
+
+        for (
+            let index = 0;
+            index < drops.length;
+            index++
+        ) {
+
+            const character =
+                characters[
+                    Math.floor(
+                        Math.random() *
+                        characters.length
+                    )
+                ];
+
+
+            const x =
+                index *
+                fontSize;
+
+
+            const y =
+                drops[index] *
+                fontSize;
+
+
+            /*
+               Opacidad variable para que
+               la lluvia no sea demasiado fuerte.
+            */
+
+            const opacity =
+                Math.random() *
+                0.35 +
+                0.15;
+
+
+            context.fillStyle =
+                `rgba(255, 255, 255, ${opacity})`;
+
+
+            context.fillText(
+                character,
+                x,
+                y
+            );
+
+
+            /*
+               Cuando una columna llega
+               al final vuelve a comenzar.
+            */
+
+            if (
+                y > height &&
+                Math.random() > 0.975
+            ) {
+
+                drops[index] =
+                    Math.random() *
+                    -20;
+
+            }
+
+
+            /*
+               Velocidad de caída.
+            */
+
+            drops[index] +=
+                0.45;
+
+        }
+
+
+        requestAnimationFrame(
+            drawRain
+        );
+
+    }
+
+
+    /* ======================================
+       INICIAR LLUVIA
+    ====================================== */
+
+    resizeRain();
+
+    drawRain();
+
+
+    /* ======================================
+       RESPONSIVE
+    ====================================== */
+
+    window.addEventListener(
+        "resize",
+        resizeRain
+    );
+
+}
+
+
+/* ==========================================
    MENÚ MOBILE
 ========================================== */
 
@@ -69,15 +285,31 @@ if (menuButton && mobileMenu) {
 
     menuButton.addEventListener("click", () => {
 
-        if (
-            mobileMenu.style.display === "block"
-        ) {
+        const isOpen =
+            mobileMenu.style.display === "block";
 
-            mobileMenu.style.display = "none";
+
+        if (isOpen) {
+
+            mobileMenu.style.display =
+                "none";
+
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
 
         } else {
 
-            mobileMenu.style.display = "block";
+            mobileMenu.style.display =
+                "block";
+
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                "true"
+            );
 
         }
 
@@ -92,7 +324,14 @@ if (menuButton && mobileMenu) {
 
         link.addEventListener("click", () => {
 
-            mobileMenu.style.display = "none";
+            mobileMenu.style.display =
+                "none";
+
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
 
         });
 
@@ -111,34 +350,26 @@ const projectBrief =
 
 if (projectBrief) {
 
-
     const step1 =
         document.getElementById("step1");
-
 
     const step2 =
         document.getElementById("step2");
 
-
     const nextStep =
         document.getElementById("nextStep");
-
 
     const previousStep =
         document.getElementById("previousStep");
 
-
     const progress1 =
         document.getElementById("progress1");
-
 
     const progress2 =
         document.getElementById("progress2");
 
-
     const message =
         document.getElementById("briefMessage");
-
 
     const submitButton =
         document.getElementById("submitBrief");
@@ -154,19 +385,34 @@ if (projectBrief) {
             "click",
             () => {
 
+                const nombreElement =
+                    document.getElementById(
+                        "nombre"
+                    );
+
+
+                const emailElement =
+                    document.getElementById(
+                        "email"
+                    );
+
+
+                const descripcionElement =
+                    document.getElementById(
+                        "descripcion"
+                    );
+
 
                 const nombre =
-                    document
-                        .getElementById("nombre")
-                        .value
-                        .trim();
+                    nombreElement
+                        ? nombreElement.value.trim()
+                        : "";
 
 
                 const email =
-                    document
-                        .getElementById("email")
-                        .value
-                        .trim();
+                    emailElement
+                        ? emailElement.value.trim()
+                        : "";
 
 
                 const cliente =
@@ -182,13 +428,14 @@ if (projectBrief) {
 
 
                 const descripcion =
-                    document
-                        .getElementById("descripcion")
-                        .value
-                        .trim();
+                    descripcionElement
+                        ? descripcionElement.value.trim()
+                        : "";
 
 
-                /* VALIDAR NOMBRE */
+                /* ==========================
+                   VALIDAR NOMBRE
+                ========================== */
 
                 if (!nombre) {
 
@@ -201,7 +448,9 @@ if (projectBrief) {
                 }
 
 
-                /* VALIDAR EMAIL */
+                /* ==========================
+                   VALIDAR EMAIL
+                ========================== */
 
                 if (!email) {
 
@@ -218,7 +467,9 @@ if (projectBrief) {
                     /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 
-                if (!emailValido.test(email)) {
+                if (
+                    !emailValido.test(email)
+                ) {
 
                     alert(
                         "Escribe un correo electrónico válido."
@@ -229,7 +480,9 @@ if (projectBrief) {
                 }
 
 
-                /* VALIDAR CLIENTE */
+                /* ==========================
+                   VALIDAR CLIENTE
+                ========================== */
 
                 if (!cliente) {
 
@@ -242,7 +495,9 @@ if (projectBrief) {
                 }
 
 
-                /* VALIDAR PROYECTO */
+                /* ==========================
+                   VALIDAR PROYECTO
+                ========================== */
 
                 if (!proyecto) {
 
@@ -255,7 +510,9 @@ if (projectBrief) {
                 }
 
 
-                /* VALIDAR DESCRIPCIÓN */
+                /* ==========================
+                   VALIDAR DESCRIPCIÓN
+                ========================== */
 
                 if (!descripcion) {
 
@@ -268,37 +525,90 @@ if (projectBrief) {
                 }
 
 
-                /* ACTUALIZAR RESUMEN */
+                /* ==========================
+                   ACTUALIZAR RESUMEN
+                ========================== */
 
-                document.getElementById(
-                    "summaryName"
-                ).textContent = nombre;
-
-
-                document.getElementById(
-                    "summaryEmail"
-                ).textContent = email;
+                const summaryName =
+                    document.getElementById(
+                        "summaryName"
+                    );
 
 
-                document.getElementById(
-                    "summaryProject"
-                ).textContent = proyecto.value;
+                const summaryEmail =
+                    document.getElementById(
+                        "summaryEmail"
+                    );
 
 
-                /* CAMBIAR PASO */
+                const summaryProject =
+                    document.getElementById(
+                        "summaryProject"
+                    );
 
-                step1.classList.remove("active");
 
-                step2.classList.add("active");
+                if (summaryName) {
+
+                    summaryName.textContent =
+                        nombre;
+
+                }
 
 
-                progress1.classList.remove(
-                    "active"
-                );
+                if (summaryEmail) {
 
-                progress2.classList.add(
-                    "active"
-                );
+                    summaryEmail.textContent =
+                        email;
+
+                }
+
+
+                if (summaryProject) {
+
+                    summaryProject.textContent =
+                        proyecto.value;
+
+                }
+
+
+                /* ==========================
+                   CAMBIAR PASO
+                ========================== */
+
+                if (step1) {
+
+                    step1.classList.remove(
+                        "active"
+                    );
+
+                }
+
+
+                if (step2) {
+
+                    step2.classList.add(
+                        "active"
+                    );
+
+                }
+
+
+                if (progress1) {
+
+                    progress1.classList.remove(
+                        "active"
+                    );
+
+                }
+
+
+                if (progress2) {
+
+                    progress2.classList.add(
+                        "active"
+                    );
+
+                }
 
 
                 window.scrollTo({
@@ -322,18 +632,40 @@ if (projectBrief) {
             "click",
             () => {
 
-                step2.classList.remove("active");
+                if (step2) {
 
-                step1.classList.add("active");
+                    step2.classList.remove(
+                        "active"
+                    );
+
+                }
 
 
-                progress2.classList.remove(
-                    "active"
-                );
+                if (step1) {
 
-                progress1.classList.add(
-                    "active"
-                );
+                    step1.classList.add(
+                        "active"
+                    );
+
+                }
+
+
+                if (progress2) {
+
+                    progress2.classList.remove(
+                        "active"
+                    );
+
+                }
+
+
+                if (progress1) {
+
+                    progress1.classList.add(
+                        "active"
+                    );
+
+                }
 
 
                 window.scrollTo({
@@ -363,10 +695,18 @@ if (projectBrief) {
             "change",
             () => {
 
-                document.getElementById(
-                    "summaryBudget"
-                ).textContent =
-                    option.value;
+                const summaryBudget =
+                    document.getElementById(
+                        "summaryBudget"
+                    );
+
+
+                if (summaryBudget) {
+
+                    summaryBudget.textContent =
+                        option.value;
+
+                }
 
             }
         );
@@ -390,10 +730,18 @@ if (projectBrief) {
             "change",
             () => {
 
-                document.getElementById(
-                    "summaryTime"
-                ).textContent =
-                    option.value;
+                const summaryTime =
+                    document.getElementById(
+                        "summaryTime"
+                    );
+
+
+                if (summaryTime) {
+
+                    summaryTime.textContent =
+                        option.value;
+
+                }
 
             }
         );
@@ -412,7 +760,9 @@ if (projectBrief) {
             event.preventDefault();
 
 
-            /* VALIDAR PRESUPUESTO */
+            /* ==============================
+               VALIDAR PRESUPUESTO
+            ============================== */
 
             const presupuesto =
                 document.querySelector(
@@ -422,15 +772,21 @@ if (projectBrief) {
 
             if (!presupuesto) {
 
-                message.textContent =
-                    "Selecciona un presupuesto aproximado.";
+                if (message) {
+
+                    message.textContent =
+                        "Selecciona un presupuesto aproximado.";
+
+                }
 
                 return;
 
             }
 
 
-            /* VALIDAR TIEMPO */
+            /* ==============================
+               VALIDAR TIEMPO
+            ============================== */
 
             const tiempo =
                 document.querySelector(
@@ -440,15 +796,21 @@ if (projectBrief) {
 
             if (!tiempo) {
 
-                message.textContent =
-                    "Selecciona cuándo te gustaría empezar.";
+                if (message) {
+
+                    message.textContent =
+                        "Selecciona cuándo te gustaría empezar.";
+
+                }
 
                 return;
 
             }
 
 
-            /* VALIDAR HONEYPOT */
+            /* ==============================
+               VALIDAR HONEYPOT
+            ============================== */
 
             const honeypot =
                 projectBrief.querySelector(
@@ -466,19 +828,27 @@ if (projectBrief) {
             }
 
 
-            /* ESTADO DE ENVÍO */
+            /* ==============================
+               ESTADO DE ENVÍO
+            ============================== */
 
-            message.textContent =
-                "Enviando tu brief...";
+            if (message) {
+
+                message.textContent =
+                    "Enviando tu brief...";
 
 
-            message.style.color =
-                "var(--text-muted)";
+                message.style.color =
+                    "var(--text-muted)";
+
+            }
 
 
             if (submitButton) {
 
-                submitButton.disabled = true;
+                submitButton.disabled =
+                    true;
+
 
                 submitButton.innerHTML =
                     "Enviando...";
@@ -488,14 +858,19 @@ if (projectBrief) {
 
             try {
 
-
-                /* CREAR DATOS */
+                /* ==========================
+                   CREAR DATOS
+                ========================== */
 
                 const formData =
-                    new FormData(projectBrief);
+                    new FormData(
+                        projectBrief
+                    );
 
 
-                /* ENVIAR A FORMSPREE */
+                /* ==========================
+                   ENVIAR A FORMSPREE
+                ========================== */
 
                 const response =
                     await fetch(
@@ -513,77 +888,115 @@ if (projectBrief) {
                     );
 
 
-                /* RESPUESTA EXITOSA */
+                /* ==========================
+                   RESPUESTA EXITOSA
+                ========================== */
 
                 if (response.ok) {
 
+                    if (message) {
 
-                    message.textContent =
-                        "✓ Brief enviado correctamente. Gracias por contarme sobre tu proyecto. Me pondré en contacto contigo pronto.";
-
-
-                    message.style.color =
-                        "var(--text)";
+                        message.textContent =
+                            "✓ Brief enviado correctamente. Gracias por contarme sobre tu proyecto. Me pondré en contacto contigo pronto.";
 
 
-                    /* LIMPIAR FORMULARIO */
+                        message.style.color =
+                            "var(--text)";
+
+                    }
+
+
+                    /* ======================
+                       LIMPIAR FORMULARIO
+                    ====================== */
 
                     projectBrief.reset();
 
 
-                    /* LIMPIAR RESUMEN */
+                    /* ======================
+                       LIMPIAR RESUMEN
+                    ====================== */
 
-                    document.getElementById(
-                        "summaryName"
-                    ).textContent = "—";
+                    const summaryElements = [
 
-
-                    document.getElementById(
-                        "summaryEmail"
-                    ).textContent = "—";
-
-
-                    document.getElementById(
-                        "summaryProject"
-                    ).textContent = "—";
-
-
-                    document.getElementById(
-                        "summaryBudget"
-                    ).textContent = "—";
-
-
-                    document.getElementById(
+                        "summaryName",
+                        "summaryEmail",
+                        "summaryProject",
+                        "summaryBudget",
                         "summaryTime"
-                    ).textContent = "—";
+
+                    ];
 
 
-                    /* VOLVER AL PASO 1 */
+                    summaryElements.forEach(
+                        (id) => {
 
-                    step2.classList.remove(
-                        "active"
+                            const element =
+                                document.getElementById(
+                                    id
+                                );
+
+
+                            if (element) {
+
+                                element.textContent =
+                                    "—";
+
+                            }
+
+                        }
                     );
 
-                    step1.classList.add(
-                        "active"
-                    );
+
+                    /* ======================
+                       VOLVER AL PASO 1
+                    ====================== */
+
+                    if (step2) {
+
+                        step2.classList.remove(
+                            "active"
+                        );
+
+                    }
 
 
-                    progress2.classList.remove(
-                        "active"
-                    );
+                    if (step1) {
 
-                    progress1.classList.add(
-                        "active"
-                    );
+                        step1.classList.add(
+                            "active"
+                        );
+
+                    }
 
 
-                    /* RESTAURAR BOTÓN */
+                    if (progress2) {
+
+                        progress2.classList.remove(
+                            "active"
+                        );
+
+                    }
+
+
+                    if (progress1) {
+
+                        progress1.classList.add(
+                            "active"
+                        );
+
+                    }
+
+
+                    /* ======================
+                       RESTAURAR BOTÓN
+                    ====================== */
 
                     if (submitButton) {
 
                         submitButton.disabled =
                             false;
+
 
                         submitButton.innerHTML =
                             'Enviar el brief <span>↗</span>';
@@ -599,32 +1012,46 @@ if (projectBrief) {
 
                 } else {
 
-
-                    /* ERROR FORMSPREE */
+                    /* ======================
+                       ERROR FORMSPREE
+                    ====================== */
 
                     const data =
                         await response
                             .json()
-                            .catch(() => null);
+                            .catch(
+                                () => null
+                            );
 
 
                     if (
                         data &&
-                        data.errors
+                        data.errors &&
+                        Array.isArray(
+                            data.errors
+                        )
                     ) {
 
-                        message.textContent =
-                            data.errors
-                                .map(
-                                    (error) =>
-                                        error.message
-                                )
-                                .join(", ");
+                        if (message) {
+
+                            message.textContent =
+                                data.errors
+                                    .map(
+                                        (error) =>
+                                            error.message
+                                    )
+                                    .join(", ");
+
+                        }
 
                     } else {
 
-                        message.textContent =
-                            "No fue posible enviar el brief. Inténtalo nuevamente.";
+                        if (message) {
+
+                            message.textContent =
+                                "No fue posible enviar el brief. Inténtalo nuevamente.";
+
+                        }
 
                     }
 
@@ -633,6 +1060,7 @@ if (projectBrief) {
 
                         submitButton.disabled =
                             false;
+
 
                         submitButton.innerHTML =
                             'Enviar el brief <span>↗</span>';
@@ -644,21 +1072,25 @@ if (projectBrief) {
 
             } catch (error) {
 
-
                 console.error(
                     "Error enviando el brief:",
                     error
                 );
 
 
-                message.textContent =
-                    "Ocurrió un error de conexión. Revisa tu conexión a Internet e inténtalo nuevamente.";
+                if (message) {
+
+                    message.textContent =
+                        "Ocurrió un error de conexión. Revisa tu conexión a Internet e inténtalo nuevamente.";
+
+                }
 
 
                 if (submitButton) {
 
                     submitButton.disabled =
                         false;
+
 
                     submitButton.innerHTML =
                         'Enviar el brief <span>↗</span>';

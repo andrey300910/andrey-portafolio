@@ -31,12 +31,13 @@ html {
 body {
     background: var(--background);
     color: var(--text);
-
     font-family: var(--font-main);
-
     line-height: 1.5;
-
     overflow-x: hidden;
+    opacity: 1;
+
+    position: relative;
+    min-height: 100vh;
 }
 
 body.loaded {
@@ -61,6 +62,122 @@ button {
 ::selection {
     background: var(--text);
     color: var(--background);
+}
+
+
+/* ==========================================
+   LLUVIA DIGITAL GLOBAL
+   ========================================== */
+
+/*
+   La lluvia ya no depende del .hero.
+
+   Ahora pertenece al BODY y aparece
+   automáticamente en todas las páginas:
+
+   - index.html
+   - blog.html
+   - sobre-mi.html
+   - contacto.html
+*/
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    opacity: 0.42;
+
+    background-image:
+        repeating-linear-gradient(
+            180deg,
+            transparent 0px,
+            transparent 22px,
+            rgba(255, 255, 255, 0.10) 23px,
+            rgba(255, 255, 255, 0.18) 24px,
+            transparent 25px,
+            transparent 72px
+        ),
+        repeating-linear-gradient(
+            180deg,
+            transparent 0px,
+            transparent 48px,
+            rgba(255, 255, 255, 0.06) 49px,
+            rgba(255, 255, 255, 0.12) 50px,
+            transparent 51px,
+            transparent 110px
+        );
+
+    background-size:
+        100% 120px,
+        100% 180px;
+
+    background-position:
+        0 -120px,
+        0 -180px;
+
+    animation:
+        digitalRainGlobal 3.5s linear infinite;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            black 12%,
+            black 82%,
+            transparent 100%
+        );
+
+    -webkit-mask-image:
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            black 12%,
+            black 82%,
+            transparent 100%
+        );
+}
+
+
+@keyframes digitalRainGlobal {
+
+    from {
+        background-position:
+            0 -120px,
+            0 -180px;
+    }
+
+    to {
+        background-position:
+            0 120px,
+            0 180px;
+    }
+
+}
+
+
+/*
+   Todos los elementos principales permanecen
+   por encima de la lluvia.
+*/
+
+.header,
+.hero,
+.marquee,
+.section,
+.page-hero,
+.cta,
+.footer {
+    position: relative;
 }
 
 
@@ -124,7 +241,9 @@ button {
 }
 
 
-/* LOGO */
+/* ==========================================
+   LOGO
+========================================== */
 
 .logo {
     font-family: var(--font-title);
@@ -141,7 +260,9 @@ button {
 }
 
 
-/* NAV */
+/* ==========================================
+   NAV
+========================================== */
 
 .nav {
     display: flex;
@@ -177,7 +298,9 @@ button {
 }
 
 
-/* HEADER BUTTON */
+/* ==========================================
+   HEADER BUTTON
+========================================== */
 
 .header-button {
     display: flex;
@@ -208,7 +331,9 @@ button {
 }
 
 
-/* MENU BUTTON */
+/* ==========================================
+   MENU BUTTON
+========================================== */
 
 .menu-button {
     display: none;
@@ -223,7 +348,9 @@ button {
 }
 
 
-/* MOBILE MENU */
+/* ==========================================
+   MOBILE MENU
+========================================== */
 
 .mobile-menu {
     display: none;
@@ -266,29 +393,108 @@ button {
 ========================================== */
 
 .hero {
+    position: relative;
+
     min-height: 100vh;
 
     padding: 180px 5vw 100px;
 
     display: flex;
 
-    flex-direction: column;
+    align-items: center;
 
-    justify-content: center;
+    justify-content: space-between;
+
+    gap: clamp(40px, 6vw, 100px);
+
+    overflow: hidden;
+
+    isolation: isolate;
 }
 
+
+/* ==========================================
+   LLUVIA DIGITAL DEL HERO
+========================================== */
+
+/*
+   La lluvia anterior estaba limitada al .hero.
+
+   Ahora la lluvia global está en body::before.
+
+   Este elemento se mantiene oculto para evitar
+   que aparezca una segunda lluvia encima del Hero.
+*/
+
+.digital-rain {
+    display: none;
+}
+
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 75% 45%,
+            rgba(255, 255, 255, 0.045),
+            transparent 32%
+        ),
+        linear-gradient(
+            90deg,
+            rgba(8, 8, 8, 0.78) 0%,
+            rgba(8, 8, 8, 0.48) 55%,
+            rgba(8, 8, 8, 0.28) 100%
+        );
+}
+
+
+/* ==========================================
+   NÚMERO DEL HERO
+========================================== */
+
 .hero-number {
+    position: absolute;
+
+    top: 180px;
+    left: 5vw;
+
     color: var(--text-muted);
 
     font-size: 12px;
 
-    margin-bottom: 50px;
-
     font-family: var(--font-title);
+
+    z-index: 3;
 }
 
+
+/* ==========================================
+   CONTENIDO HERO
+========================================== */
+
 .hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    flex: 1 1 auto;
+
+    width: 100%;
+
+    min-width: 0;
+
     max-width: 1100px;
+
+    padding-top: 35px;
 }
 
 .eyebrow {
@@ -304,6 +510,8 @@ button {
 }
 
 .hero h1 {
+    width: 100%;
+
     max-width: 1100px;
 
     font-family: var(--font-title);
@@ -313,6 +521,12 @@ button {
     line-height: 0.95;
 
     letter-spacing: -0.06em;
+
+    word-break: normal;
+
+    overflow-wrap: normal;
+
+    white-space: normal;
 }
 
 .hero h1 span {
@@ -322,7 +536,9 @@ button {
 }
 
 .hero-description {
-    max-width: 650px;
+    width: 100%;
+
+    max-width: 760px;
 
     margin-top: 40px;
 
@@ -331,6 +547,12 @@ button {
     font-size: 18px;
 
     line-height: 1.7;
+
+    word-break: normal;
+
+    overflow-wrap: normal;
+
+    white-space: normal;
 }
 
 .hero-info {
@@ -371,6 +593,180 @@ button {
     gap: 15px;
 
     margin-top: 50px;
+}
+
+
+/* ==========================================
+   PERFIL / FOTO HERO
+========================================== */
+
+.hero-profile {
+    position: relative;
+
+    z-index: 3;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    flex: 0 0 320px;
+
+    width: 320px;
+
+    padding-top: 35px;
+}
+
+.profile-photo-wrapper {
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: flex-end;
+}
+
+.profile-photo-number {
+    position: absolute;
+
+    top: -28px;
+
+    right: 0;
+
+    font-family: var(--font-title);
+
+    font-size: 11px;
+
+    letter-spacing: 0.16em;
+
+    color: rgba(255, 255, 255, 0.45);
+
+    white-space: nowrap;
+}
+
+
+/* ==========================================
+   FOTO OVALADA
+========================================== */
+
+.profile-photo-frame {
+    position: relative;
+
+    width: 260px;
+
+    height: 360px;
+
+    overflow: hidden;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    background: #111;
+
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.03),
+        0 25px 70px rgba(0, 0, 0, 0.5);
+
+    transition:
+        transform 0.5s ease,
+        border-color 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+.profile-photo-frame::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.12),
+            transparent 35%,
+            transparent 65%,
+            rgba(255, 255, 255, 0.04)
+        );
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    filter: grayscale(8%) contrast(1.04);
+
+    transform: scale(1.02);
+
+    transition:
+        transform 0.7s ease,
+        filter 0.7s ease;
+}
+
+.profile-photo-frame:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(255, 255, 255, 0.35);
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.65),
+        0 0 45px rgba(255, 255, 255, 0.06);
+}
+
+.profile-photo-frame:hover .profile-photo {
+    transform: scale(1.06);
+
+    filter: grayscale(0%) contrast(1.05);
+}
+
+
+/* ==========================================
+   TEXTO DEBAJO DE LA FOTO
+========================================== */
+
+.profile-caption {
+    width: 260px;
+
+    margin-top: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    text-align: right;
+}
+
+.profile-caption span {
+    font-family: var(--font-title);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.14em;
+
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.profile-caption small {
+    font-size: 10px;
+
+    letter-spacing: 0.12em;
+
+    color: rgba(255, 255, 255, 0.4);
 }
 
 
@@ -514,6 +910,8 @@ button {
 
 .manifesto-content {
     max-width: 1100px;
+
+    min-width: 0;
 }
 
 .manifesto h2 {
@@ -531,7 +929,9 @@ button {
 }
 
 .manifesto p {
-    max-width: 700px;
+    width: 100%;
+
+    max-width: 900px;
 
     margin-top: 35px;
 
@@ -540,6 +940,12 @@ button {
     font-size: 17px;
 
     line-height: 1.8;
+
+    word-break: normal;
+
+    overflow-wrap: normal;
+
+    white-space: normal;
 }
 
 
@@ -608,9 +1014,17 @@ button {
 }
 
 .project-card p {
+    width: 100%;
+
     color: var(--text-muted);
 
     line-height: 1.7;
+
+    word-break: normal;
+
+    overflow-wrap: normal;
+
+    white-space: normal;
 }
 
 .project-tags {
@@ -644,6 +1058,8 @@ button {
     grid-template-columns: 1fr 2fr;
 
     gap: 80px;
+
+    min-width: 0;
 }
 
 .stack-content h2 {
@@ -664,6 +1080,8 @@ button {
     grid-template-columns: repeat(2, 1fr);
 
     border-top: 1px solid var(--border);
+
+    min-width: 0;
 }
 
 .stack-item {
@@ -699,6 +1117,8 @@ button {
     max-width: 900px;
 
     margin: 0 auto;
+
+    min-width: 0;
 }
 
 .cta h2 {
@@ -727,43 +1147,147 @@ button {
 .page-hero {
     min-height: 70vh;
 
+    width: 100%;
+
     padding: 180px 5vw 100px;
 
     display: grid;
 
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 80px minmax(0, 1fr);
+
+    column-gap: clamp(30px, 5vw, 70px);
 
     align-items: center;
+
+    min-width: 0;
 }
 
-.page-hero h1 {
-    max-width: 900px;
+
+/* ==========================================
+   NÚMERO PAGE HERO
+========================================== */
+
+.page-hero > .hero-number {
+    position: static;
+
+    grid-column: 1;
+
+    align-self: start;
+
+    color: var(--text-muted);
+
+    font-size: 12px;
+
+    font-family: var(--font-title);
+}
+
+
+/* ==========================================
+   CONTENEDOR REAL DEL TEXTO
+========================================== */
+
+.page-hero-content {
+    grid-column: 2;
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    min-width: 0;
+
+    display: block;
+}
+
+
+/* ==========================================
+   EYEBROW PAGE HERO
+========================================== */
+
+.page-hero-content .eyebrow {
+    display: block;
+
+    width: 100%;
+
+    margin-bottom: 25px;
+}
+
+
+/* ==========================================
+   TÍTULO PAGE HERO
+========================================== */
+
+.page-hero-content h1 {
+    display: block;
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    margin: 0;
 
     font-family: var(--font-title);
 
-    font-size: clamp(55px, 9vw, 110px);
+    font-size: clamp(52px, 7.5vw, 105px);
 
-    line-height: 0.95;
+    line-height: 0.98;
 
-    letter-spacing: -0.06em;
+    letter-spacing: -0.055em;
+
+    word-break: normal;
+
+    overflow-wrap: normal;
+
+    white-space: normal;
 }
 
-.page-hero h1 span {
+
+/* ==========================================
+   SPAN DEL TÍTULO
+========================================== */
+
+.page-hero-content h1 span {
     display: block;
 
     color: var(--text-muted);
 }
 
-.page-hero p:not(.eyebrow) {
-    max-width: 650px;
 
-    margin-top: 35px;
+/* ==========================================
+   PÁRRAFO PAGE HERO
+========================================== */
+
+.page-hero-content .page-hero-description {
+    display: block;
+
+    width: 100%;
+
+    max-width: 850px;
+
+    margin: 35px 0 0;
+
+    padding: 0;
 
     color: var(--text-muted);
 
+    font-family: var(--font-main);
+
     font-size: 18px;
 
+    font-weight: 400;
+
     line-height: 1.7;
+
+    letter-spacing: normal;
+
+    word-spacing: normal;
+
+    word-break: normal;
+
+    overflow-wrap: normal;
+
+    white-space: normal;
+
+    hyphens: none;
 }
 
 
@@ -781,6 +1305,8 @@ button {
     background: var(--border);
 
     border: 1px solid var(--border);
+
+    min-width: 0;
 }
 
 .blog-card {
@@ -796,6 +1322,8 @@ button {
 
     justify-content: space-between;
 
+    min-width: 0;
+
     transition: background 0.3s ease;
 }
 
@@ -809,18 +1337,40 @@ button {
     font-size: 12px;
 }
 
+.blog-content {
+    width: 100%;
+
+    min-width: 0;
+}
+
 .blog-content h2 {
     margin-bottom: 20px;
 
     font-family: var(--font-title);
 
     font-size: 30px;
+
+    word-break: normal;
+
+    overflow-wrap: normal;
+
+    white-space: normal;
 }
 
 .blog-content p {
+    width: 100%;
+
+    max-width: 900px;
+
     color: var(--text-muted);
 
     line-height: 1.7;
+
+    word-break: normal;
+
+    overflow-wrap: normal;
+
+    white-space: normal;
 }
 
 .read-more {
@@ -842,6 +1392,12 @@ button {
     grid-template-columns: 1fr 2fr;
 
     gap: 80px;
+
+    min-width: 0;
+}
+
+.about-content > * {
+    min-width: 0;
 }
 
 .about-content h2 {
@@ -856,12 +1412,28 @@ button {
     color: var(--text-muted);
 }
 
+.about-text {
+    width: 100%;
+
+    min-width: 0;
+}
+
 .about-text p {
+    width: 100%;
+
+    max-width: 900px;
+
     margin-bottom: 25px;
 
     color: var(--text-muted);
 
     line-height: 1.8;
+
+    word-break: normal;
+
+    overflow-wrap: normal;
+
+    white-space: normal;
 }
 
 
@@ -878,13 +1450,19 @@ button {
 .timeline-item {
     display: grid;
 
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 100px minmax(0, 1fr);
 
     gap: 40px;
 
     padding: 35px 0;
 
     border-bottom: 1px solid var(--border);
+
+    min-width: 0;
+}
+
+.timeline-item > * {
+    min-width: 0;
 }
 
 .timeline-number {
@@ -902,9 +1480,17 @@ button {
 }
 
 .timeline-item p {
+    width: 100%;
+
     color: var(--text-muted);
 
     line-height: 1.7;
+
+    word-break: normal;
+
+    overflow-wrap: normal;
+
+    white-space: normal;
 }
 
 
@@ -918,6 +1504,8 @@ button {
     grid-template-columns: repeat(2, 1fr);
 
     border-top: 1px solid var(--border);
+
+    min-width: 0;
 }
 
 .skills-list div {
@@ -930,6 +1518,8 @@ button {
     font-family: var(--font-title);
 
     font-size: 18px;
+
+    min-width: 0;
 }
 
 
@@ -947,6 +1537,8 @@ button {
     background: var(--border);
 
     border: 1px solid var(--border);
+
+    min-width: 0;
 }
 
 .contact-card {
@@ -961,6 +1553,8 @@ button {
     flex-direction: column;
 
     justify-content: space-between;
+
+    min-width: 0;
 
     transition: background 0.3s ease;
 }
@@ -986,9 +1580,21 @@ button {
 }
 
 .contact-card p {
+    width: 100%;
+
+    max-width: 900px;
+
     color: var(--text-muted);
 
     font-size: 14px;
+
+    line-height: 1.7;
+
+    word-break: normal;
+
+    overflow-wrap: normal;
+
+    white-space: normal;
 }
 
 .contact-card a {
@@ -1006,16 +1612,22 @@ button {
     max-width: 900px;
 
     margin: 100px auto 0;
+
+    min-width: 0;
 }
 
 .contact-form {
     display: grid;
 
     gap: 30px;
+
+    min-width: 0;
 }
 
 .form-group {
     margin-bottom: 35px;
+
+    min-width: 0;
 }
 
 .form-group label {
@@ -1075,6 +1687,8 @@ button {
     max-width: 1000px;
 
     margin: 0 auto;
+
+    min-width: 0;
 }
 
 
@@ -1153,6 +1767,8 @@ button {
 
 .brief-step {
     display: none;
+
+    min-width: 0;
 }
 
 .brief-step.active {
@@ -1188,6 +1804,12 @@ button {
     gap: 30px;
 
     margin-bottom: 70px;
+
+    min-width: 0;
+}
+
+.brief-heading > * {
+    min-width: 0;
 }
 
 .brief-code {
@@ -1211,11 +1833,19 @@ button {
 }
 
 .brief-heading p {
-    max-width: 600px;
+    width: 100%;
+
+    max-width: 800px;
 
     color: var(--text-muted);
 
     line-height: 1.7;
+
+    word-break: normal;
+
+    overflow-wrap: normal;
+
+    white-space: normal;
 }
 
 
@@ -1396,6 +2026,8 @@ button {
     padding: 22px 0;
 
     border-bottom: 1px solid var(--border);
+
+    min-width: 0;
 }
 
 .summary-row:last-child {
@@ -1412,6 +2044,14 @@ button {
     max-width: 60%;
 
     font-weight: 500;
+
+    min-width: 0;
+
+    word-break: normal;
+
+    overflow-wrap: normal;
+
+    white-space: normal;
 }
 
 
@@ -1483,7 +2123,63 @@ button {
 
 
 /* ==========================================
-   RESPONSIVE
+   RESPONSIVE 1100
+========================================== */
+
+@media (max-width: 1100px) {
+
+    .page-hero-content {
+        max-width: 900px;
+    }
+
+    .page-hero-content h1 {
+        max-width: 900px;
+
+        font-size: clamp(50px, 7vw, 90px);
+    }
+
+    .page-hero-content .page-hero-description {
+        max-width: 800px;
+    }
+
+}
+
+
+/* ==========================================
+   RESPONSIVE 1000
+========================================== */
+
+@media (max-width: 1000px) {
+
+    .hero {
+        gap: 45px;
+    }
+
+    .hero-content {
+        max-width: 700px;
+    }
+
+    .hero-profile {
+        flex-basis: 230px;
+
+        width: 230px;
+    }
+
+    .profile-photo-frame {
+        width: 210px;
+
+        height: 300px;
+    }
+
+    .profile-caption {
+        width: 210px;
+    }
+
+}
+
+
+/* ==========================================
+   TABLET 900
 ========================================== */
 
 @media (max-width: 900px) {
@@ -1497,18 +2193,15 @@ button {
         display: block;
     }
 
-
     .projects-grid {
         grid-template-columns: 1fr;
     }
-
 
     .stack-content {
         grid-template-columns: 1fr;
 
         gap: 50px;
     }
-
 
     .about-content {
         grid-template-columns: 1fr;
@@ -1517,22 +2210,120 @@ button {
     }
 
 
+    /* PAGE HERO */
+
     .page-hero {
         grid-template-columns: 1fr;
 
-        gap: 30px;
+        row-gap: 30px;
+
+        padding-left: 5vw;
+
+        padding-right: 5vw;
     }
 
+    .page-hero > .hero-number {
+        grid-column: 1;
 
-    .page-hero .hero-number {
-        margin-bottom: 0;
+        position: static;
+    }
+
+    .page-hero-content {
+        grid-column: 1;
+
+        width: 100%;
+
+        max-width: 100%;
+    }
+
+    .page-hero-content h1 {
+        max-width: 100%;
+
+        font-size: clamp(52px, 9vw, 90px);
+    }
+
+    .page-hero-content .page-hero-description {
+        max-width: 850px;
     }
 
 }
 
 
 /* ==========================================
-   MOBILE
+   HERO TABLET / MÓVIL
+========================================== */
+
+@media (max-width: 800px) {
+
+    .hero {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        justify-content: center;
+
+        gap: 0;
+
+        padding-top: 150px;
+    }
+
+    .hero-number {
+        position: static;
+
+        margin-bottom: 35px;
+    }
+
+    .hero-content {
+        width: 100%;
+
+        max-width: none;
+
+        padding-top: 0;
+    }
+
+    .hero-profile {
+        width: 100%;
+
+        flex-basis: auto;
+
+        align-items: center;
+
+        margin-top: 65px;
+
+        padding-top: 0;
+    }
+
+    .profile-photo-wrapper {
+        justify-content: center;
+    }
+
+    .profile-photo-number {
+        right: auto;
+
+        left: 50%;
+
+        transform: translateX(-50%);
+    }
+
+    .profile-caption {
+        text-align: center;
+    }
+
+    /*
+       La lluvia ahora es global.
+       Reducimos ligeramente su intensidad
+       en pantallas pequeñas.
+    */
+
+    body::before {
+        opacity: 0.30;
+    }
+
+}
+
+
+/* ==========================================
+   MOBILE 700
 ========================================== */
 
 @media (max-width: 700px) {
@@ -1543,31 +2334,29 @@ button {
         padding: 0 20px;
     }
 
-
     .mobile-menu {
         top: 75px;
     }
-
 
     .cursor {
         display: none;
     }
 
-
     .hero {
         padding: 140px 20px 80px;
     }
 
-
     .hero h1 {
         font-size: clamp(48px, 15vw, 75px);
-    }
 
+        max-width: 100%;
+    }
 
     .hero-description {
         font-size: 16px;
-    }
 
+        max-width: 100%;
+    }
 
     .hero-info {
         flex-direction: column;
@@ -1575,53 +2364,123 @@ button {
         gap: 20px;
     }
 
-
     .hero-buttons {
         flex-direction: column;
 
         align-items: stretch;
     }
 
-
     .hero-buttons .button {
         width: 100%;
     }
 
+    .hero-profile {
+        margin-top: 55px;
+    }
+
+    .profile-photo-frame {
+        width: 190px;
+
+        height: 270px;
+    }
+
+    .profile-caption {
+        width: 190px;
+    }
 
     .section {
         padding: 90px 20px;
     }
 
-
     .manifesto h2 {
         font-size: 45px;
     }
-
 
     .projects-grid {
         grid-template-columns: 1fr;
     }
 
-
     .project-card {
         min-height: 350px;
     }
-
 
     .stack-grid {
         grid-template-columns: 1fr;
     }
 
 
+    /* ======================================
+       PAGE HERO MOBILE
+    ====================================== */
+
     .page-hero {
         min-height: auto;
 
         padding: 140px 20px 80px;
+
+        grid-template-columns: 1fr;
+
+        row-gap: 25px;
     }
 
+    .page-hero > .hero-number {
+        grid-column: 1;
 
-    .page-hero h1 {
+        width: auto;
+    }
+
+    .page-hero-content {
+        grid-column: 1;
+
+        width: 100%;
+
+        max-width: none;
+
+        min-width: 0;
+    }
+
+    .page-hero-content h1 {
+        display: block;
+
+        width: 100%;
+
+        max-width: none;
+
+        margin: 0;
+
         font-size: clamp(48px, 14vw, 75px);
+
+        line-height: 0.98;
+
+        word-break: normal;
+
+        overflow-wrap: normal;
+
+        white-space: normal;
+    }
+
+    .page-hero-content .page-hero-description {
+        display: block;
+
+        width: 100%;
+
+        max-width: none;
+
+        margin-top: 30px;
+
+        font-size: 16px;
+
+        line-height: 1.7;
+
+        word-break: normal;
+
+        overflow-wrap: normal;
+
+        white-space: normal;
+
+        letter-spacing: normal;
+
+        word-spacing: normal;
     }
 
 
@@ -1629,16 +2488,21 @@ button {
         grid-template-columns: 1fr;
     }
 
+    .blog-content p {
+        max-width: 100%;
+    }
 
     .contact-grid {
         grid-template-columns: 1fr;
     }
 
+    .contact-card p {
+        max-width: 100%;
+    }
 
     .skills-list {
         grid-template-columns: 1fr;
     }
-
 
     .timeline-item {
         grid-template-columns: 1fr;
@@ -1646,16 +2510,17 @@ button {
         gap: 10px;
     }
 
+    .timeline-item p {
+        max-width: 100%;
+    }
 
     .cta {
         padding: 100px 20px;
     }
 
-
     .cta h2 {
         font-size: 50px;
     }
-
 
     .footer {
         flex-direction: column;
@@ -1674,16 +2539,13 @@ button {
         padding: 60px 20px 80px;
     }
 
-
     .brief-progress {
         margin-bottom: 60px;
     }
 
-
     .brief-progress-item {
         font-size: 10px;
     }
-
 
     .brief-progress-item span {
         width: 30px;
@@ -1691,13 +2553,11 @@ button {
         height: 30px;
     }
 
-
     .brief-line {
         width: 40px;
 
         margin: 0 12px;
     }
-
 
     .brief-heading {
         gap: 15px;
@@ -1705,16 +2565,17 @@ button {
         margin-bottom: 50px;
     }
 
-
     .brief-heading h2 {
         font-size: 36px;
     }
 
+    .brief-heading p {
+        max-width: 100%;
+    }
 
     .option-grid {
         grid-template-columns: 1fr;
     }
-
 
     .brief-actions {
         flex-direction: column-reverse;
@@ -1722,13 +2583,11 @@ button {
         align-items: stretch;
     }
 
-
     .brief-actions .button {
         width: 100%;
 
         justify-content: center;
     }
-
 
     .summary-row {
         flex-direction: column;
@@ -1736,11 +2595,61 @@ button {
         gap: 8px;
     }
 
-
     .summary-row strong {
         max-width: 100%;
 
         text-align: left;
+    }
+
+}
+
+
+/* ==========================================
+   FOTO EN PANTALLAS MUY PEQUEÑAS
+========================================== */
+
+@media (max-width: 400px) {
+
+    .profile-photo-frame {
+        width: 175px;
+
+        height: 250px;
+    }
+
+    .profile-caption {
+        width: 175px;
+    }
+
+}
+
+
+/* ==========================================
+   REDUCIR ANIMACIONES
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .marquee-content {
+        animation: none;
+    }
+
+    /*
+       Desactivamos únicamente la animación
+       cuando el usuario tiene activada la
+       reducción de movimiento del sistema.
+    */
+
+    body::before {
+        animation: none;
+    }
+
+    .profile-photo-frame,
+    .profile-photo {
+        transition: none;
     }
 
 }

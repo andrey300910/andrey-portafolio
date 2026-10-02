@@ -1,522 +1,1150 @@
-```html
 <!DOCTYPE html>
+
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sobre mí | Andrey Ricardo · Full Stack Developer</title>
+<title>Sobre mí | Andrey Ricardo · Software Developer · Full Stack</title>
 
-    <meta
-        name="description"
-        content="Conoce a Andrey Ricardo, Desarrollador de Software y Full Stack Developer de Colombia. Experiencia en Python, JavaScript, Java, desarrollo web, bases de datos y automatización."
-    >
+<meta
+    name="description"
+    content="Conoce a Andrey Ricardo, Ingeniero de Sistemas, Software Developer y Full Stack Developer. Experiencia en desarrollo frontend, backend, APIs, bases de datos y arquitectura de software."
+>
 
-    <meta name="author" content="Andrey Ricardo">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="Spanish">
-    <meta name="theme-color" content="#080808">
+<meta name="author" content="Andrey Ricardo">
+<meta name="robots" content="index, follow">
+<meta name="language" content="Spanish">
+<meta name="theme-color" content="#080808">
 
-    <!-- Canonical -->
-    <link
-        rel="canonical"
-        href="https://andrey-portafolio.vercel.app/sobre-mi.html"
-    >
+<!-- Canonical -->
+<link
+    rel="canonical"
+    href="https://andrey-portafolio.vercel.app/sobre-mi.html"
+>
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-    <link
-        rel="icon"
-        type="image/png"
-        sizes="512x512"
-        href="assets/img/favicon-512.png"
-    >
-    <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="assets/img/favicon-32.png"
-    >
-    <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="assets/img/favicon-16.png"
-    >
-    <link rel="alternate icon" href="assets/img/favicon.ico">
-    <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="assets/img/favicon-180.png"
-    >
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="profile">
-    <meta
-        property="og:title"
-        content="Sobre mí | Andrey Ricardo · Full Stack Developer"
-    >
-    <meta
-        property="og:description"
-        content="Conoce a Andrey Ricardo, Desarrollador de Software y Full Stack Developer especializado en desarrollo web, automatización y bases de datos."
-    >
-    <meta
-        property="og:url"
-        content="https://andrey-portafolio.vercel.app/sobre-mi.html"
-    >
-    <meta property="og:site_name" content="Andrey Ricardo">
-    <meta property="og:locale" content="es_CO">
-    <meta
-        property="og:image"
-        content="https://andrey-portafolio.vercel.app/assets/img/og-image.png"
-    >
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta
-        property="og:image:alt"
-        content="Andrey Ricardo - Desarrollador de Software y Full Stack Developer"
-    >
+<link
+    rel="icon"
+    type="image/png"
+    sizes="512x512"
+    href="assets/img/favicon-512.png"
+>
 
-    <!-- Twitter / X -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta
-        name="twitter:title"
-        content="Sobre mí | Andrey Ricardo · Full Stack Developer"
-    >
-    <meta
-        name="twitter:description"
-        content="Conoce a Andrey Ricardo, Desarrollador de Software y Full Stack Developer especializado en desarrollo web, automatización y bases de datos."
-    >
-    <meta
-        name="twitter:image"
-        content="https://andrey-portafolio.vercel.app/assets/img/og-image.png"
-    >
+<link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="assets/img/favicon-32.png"
+>
 
-    <!-- Tipografías -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
+<link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="assets/img/favicon-16.png"
+>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="styles.css">
+<link rel="alternate icon" href="assets/img/favicon.ico">
+
+<link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="assets/img/favicon-180.png"
+>
+
+<!-- Open Graph -->
+<meta property="og:type" content="profile">
+
+<meta
+    property="og:title"
+    content="Sobre mí | Andrey Ricardo · Software Developer · Full Stack"
+>
+
+<meta
+    property="og:description"
+    content="Ingeniero de Sistemas, Software Developer y Full Stack Developer especializado en desarrollo frontend, backend, APIs, bases de datos y arquitectura de software."
+>
+
+<meta
+    property="og:url"
+    content="https://andrey-portafolio.vercel.app/sobre-mi.html"
+>
+
+<meta property="og:site_name" content="Andrey Ricardo">
+<meta property="og:locale" content="es_CO">
+
+<meta
+    property="og:image"
+    content="https://andrey-portafolio.vercel.app/assets/img/og-image.png"
+>
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta
+    property="og:image:alt"
+    content="Andrey Ricardo - Ingeniero de Sistemas · Software Developer · Full Stack Developer"
+>
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+
+<meta
+    name="twitter:title"
+    content="Sobre mí | Andrey Ricardo · Software Developer · Full Stack"
+>
+
+<meta
+    name="twitter:description"
+    content="Ingeniero de Sistemas, Software Developer y Full Stack Developer especializado en desarrollo de aplicaciones, APIs, bases de datos y arquitectura de software."
+>
+
+<meta
+    name="twitter:image"
+    content="https://andrey-portafolio.vercel.app/assets/img/og-image.png"
+>
+
+<!-- Tipografías -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+>
+
+<!-- CSS -->
+<link rel="stylesheet" href="styles.css">
+```
+
 </head>
-
 
 <body>
 
-    <div
-        class="cursor"
-        aria-hidden="true"
-    ></div>
+```
+<div
+    class="cursor"
+    aria-hidden="true"
+></div>
 
 
-    <!-- ================= HEADER ================= -->
+<!-- ================= HEADER ================= -->
 
-    <header class="header">
+<header class="header">
+
+    <a
+        href="index.html"
+        class="logo"
+        aria-label="Andrey Ricardo - Inicio"
+    >
+        AR<span>.</span>
+    </a>
+
+
+    <nav
+        class="nav"
+        aria-label="Navegación principal"
+    >
 
         <a
             href="index.html"
-            class="logo"
-            aria-label="Andrey Ricardo - Inicio"
+            class="nav-link"
         >
-            AR<span>.</span>
+            <span>00</span> Inicio
         </a>
 
-        <nav
-            class="nav"
-            aria-label="Navegación principal"
+
+        <a
+            href="blog.html"
+            class="nav-link"
         >
+            <span>01</span> Blog
+        </a>
 
-            <a
-                href="index.html"
-                class="nav-link"
-            >
-                <span>00</span> Inicio
-            </a>
 
-            <a
-                href="blog.html"
-                class="nav-link"
-            >
-                <span>01</span> Blog
-            </a>
+        <a
+            href="sobre-mi.html"
+            class="nav-link active"
+            aria-current="page"
+        >
+            <span>02</span> Sobre mí
+        </a>
 
-            <a
-                href="sobre-mi.html"
-                class="nav-link active"
-                aria-current="page"
-            >
-                <span>02</span> Sobre mí
-            </a>
-
-            <a
-                href="contacto.html"
-                class="nav-link"
-            >
-                <span>03</span> Contacto
-            </a>
-
-        </nav>
 
         <a
             href="contacto.html"
-            class="header-button"
+            class="nav-link"
         >
-            Empezar proyecto
+            <span>03</span> Contacto
+        </a>
+
+    </nav>
+
+
+    <a
+        href="contacto.html"
+        class="header-button"
+    >
+        Empezar proyecto
+        <span>↗</span>
+    </a>
+
+
+    <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Abrir menú de navegación"
+        aria-controls="mobileMenu"
+        aria-expanded="false"
+    >
+        ☰
+    </button>
+
+</header>
+
+
+<!-- ================= MENU MOVIL ================= -->
+
+<div
+    class="mobile-menu"
+    id="mobileMenu"
+>
+
+    <a href="index.html">
+        00 — Inicio
+    </a>
+
+    <a href="blog.html">
+        01 — Blog
+    </a>
+
+    <a href="sobre-mi.html">
+        02 — Sobre mí
+    </a>
+
+    <a href="contacto.html">
+        03 — Contacto
+    </a>
+
+</div>
+
+
+<!-- ================= CONTENIDO ================= -->
+
+<main>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="page-hero">
+
+        <div class="hero-number">
+            02 / 100
+        </div>
+
+
+        <div>
+
+            <p class="eyebrow">
+                SOBRE MÍ
+            </p>
+
+
+            <h1>
+                Código,
+                <span>curiosidad y aprendizaje.</span>
+            </h1>
+
+
+            <p>
+                Soy Andrey Ricardo, Ingeniero de Sistemas,
+                Software Developer y Full Stack Developer.
+                Construyo soluciones digitales combinando frontend,
+                backend, APIs, bases de datos y arquitectura de software.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= HISTORIA ================= -->
+
+    <section class="section about-section">
+
+        <div class="section-label">
+            MI HISTORIA
+        </div>
+
+
+        <div class="about-content">
+
+            <div>
+
+                <h2>
+                    Construir,
+                    <span>aprender y mejorar.</span>
+                </h2>
+
+            </div>
+
+
+            <div class="about-text">
+
+                <p>
+                    Soy Ingeniero de Sistemas con formación
+                    complementaria en desarrollo de software,
+                    desarrollo Front-end y tecnologías de la
+                    información.
+                </p>
+
+
+                <p>
+                    Mi perfil está orientado al desarrollo de software
+                    y la construcción de aplicaciones Full Stack,
+                    participando en diferentes etapas del desarrollo:
+                    diseño de interfaces, lógica de negocio,
+                    integración de APIs y gestión de datos.
+                </p>
+
+
+                <p>
+                    Durante mi formación y desarrollo de proyectos
+                    he trabajado con diferentes tecnologías y
+                    herramientas, buscando comprender no solamente
+                    cómo funciona el código, sino también cómo diseñar
+                    soluciones mantenibles y funcionales.
+                </p>
+
+
+                <p>
+                    Actualmente continúo fortaleciendo mis conocimientos
+                    en JavaScript, desarrollo frontend, backend,
+                    arquitectura de software, bases de datos y
+                    tecnologías modernas para aplicaciones web.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FORMACIÓN ================= -->
+
+    <section class="section">
+
+        <div class="section-label">
+            FORMACIÓN
+        </div>
+
+
+        <div class="timeline">
+
+
+            <!-- 01 -->
+
+            <div class="timeline-item">
+
+                <span class="timeline-number">
+                    01
+                </span>
+
+
+                <div>
+
+                    <small>
+                        FORMACIÓN PROFESIONAL
+                    </small>
+
+                    <h3>
+                        Ingeniero de Sistemas
+                    </h3>
+
+                    <p>
+                        Minor en Ingeniería de Software y Gestión de la
+                        Tecnología de la Información.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 02 -->
+
+            <div class="timeline-item">
+
+                <span class="timeline-number">
+                    02
+                </span>
+
+
+                <div>
+
+                    <small>
+                        FUNDACIÓN CARLOS SLIM
+                    </small>
+
+                    <h3>
+                        Desarrollador Front-end
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <!-- 03 -->
+
+            <div class="timeline-item">
+
+                <span class="timeline-number">
+                    03
+                </span>
+
+
+                <div>
+
+                    <small>
+                        FORMACIÓN TÉCNICA
+                    </small>
+
+                    <h3>
+                        Administrador de Servidores
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <!-- 04 -->
+
+            <div class="timeline-item">
+
+                <span class="timeline-number">
+                    04
+                </span>
+
+
+                <div>
+
+                    <small>
+                        SENA
+                    </small>
+
+                    <h3>
+                        Desarrollo de aplicaciones con interfaz
+                        gráfica, manejo de eventos, clases y objetos:
+                        Java
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <!-- 05 -->
+
+            <div class="timeline-item">
+
+                <span class="timeline-number">
+                    05
+                </span>
+
+
+                <div>
+
+                    <small>
+                        UNIVERSIDAD SIMÓN BOLÍVAR
+                    </small>
+
+                    <h3>
+                        VI Encuentro Internacional de Tendencias y
+                        Avances en Ingeniería y Diseño: Tecnología,
+                        Salud y Bienestar en la Era Digital
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <!-- 06 -->
+
+            <div class="timeline-item">
+
+                <span class="timeline-number">
+                    06
+                </span>
+
+
+                <div>
+
+                    <small>
+                        SENA
+                    </small>
+
+                    <h3>
+                        Diseño y montaje de sistemas solares
+                        fotovoltaicos básicos
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <!-- 07 -->
+
+            <div class="timeline-item">
+
+                <span class="timeline-number">
+                    07
+                </span>
+
+
+                <div>
+
+                    <small>
+                        SENA
+                    </small>
+
+                    <h3>
+                        Diseño de soluciones de Internet de las cosas
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <!-- 08 -->
+
+            <div class="timeline-item">
+
+                <span class="timeline-number">
+                    08
+                </span>
+
+
+                <div>
+
+                    <small>
+                        GOOGLE
+                    </small>
+
+                    <h3>
+                        Inteligencia Artificial y Productividad
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= EXPERIENCIA ================= -->
+
+    <section class="section">
+
+        <div class="section-label">
+            EXPERIENCIA
+        </div>
+
+
+        <div class="timeline">
+
+
+            <!-- 01 -->
+
+            <div class="timeline-item">
+
+                <span class="timeline-number">
+                    01
+                </span>
+
+
+                <div>
+
+                    <small>
+                        SOFTWARE DEVELOPMENT
+                    </small>
+
+                    <h3>
+                        Desarrollo de aplicaciones y soluciones
+                        digitales
+                    </h3>
+
+                    <p>
+                        Desarrollo de soluciones de software orientadas
+                        a resolver necesidades concretas mediante
+                        interfaces web, lógica de negocio,
+                        bases de datos, APIs y automatización.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 02 -->
+
+            <div class="timeline-item">
+
+                <span class="timeline-number">
+                    02
+                </span>
+
+
+                <div>
+
+                    <small>
+                        FULL STACK DEVELOPMENT
+                    </small>
+
+                    <h3>
+                        Desarrollo de aplicaciones Full Stack
+                    </h3>
+
+                    <p>
+                        Construcción de aplicaciones integrando
+                        frontend, backend y bases de datos,
+                        trabajando con interfaces, lógica de negocio,
+                        persistencia de información e integración
+                        mediante APIs.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 03 -->
+
+            <div class="timeline-item">
+
+                <span class="timeline-number">
+                    03
+                </span>
+
+
+                <div>
+
+                    <small>
+                        CASO DE ESTUDIO · HELPDESK HOSPITALARIO
+                    </small>
+
+                    <h3>
+                        Sistema de gestión de tickets
+                    </h3>
+
+                    <p>
+                        Desarrollo de una solución para gestionar
+                        solicitudes de soporte interno mediante
+                        Microsoft Power Apps, Dataverse y Power
+                        Automate.
+                    </p>
+
+                    <p>
+                        La solución contempla creación y seguimiento
+                        de tickets, prioridades, estados, asignación
+                        de técnicos, usuarios y automatización de
+                        notificaciones.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 04 -->
+
+            <div class="timeline-item">
+
+                <span class="timeline-number">
+                    04
+                </span>
+
+
+                <div>
+
+                    <small>
+                        CASO DE ESTUDIO · PYTHON
+                    </small>
+
+                    <h3>
+                        Sistema de gestión para Mini Market
+                    </h3>
+
+                    <p>
+                        Desarrollo de una aplicación de escritorio
+                        para gestionar ventas, inventario, clientes,
+                        pedidos y proveedores utilizando Python,
+                        Tkinter y SQLite.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 05 -->
+
+            <div class="timeline-item">
+
+                <span class="timeline-number">
+                    05
+                </span>
+
+
+                <div>
+
+                    <small>
+                        FRONTEND DEVELOPMENT
+                    </small>
+
+                    <h3>
+                        Desarrollo de interfaces web
+                    </h3>
+
+                    <p>
+                        Construcción de interfaces web utilizando
+                        HTML, CSS y JavaScript, aplicando diseño
+                        responsive, estructura semántica y buenas
+                        prácticas de desarrollo frontend.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CASOS DE ESTUDIO ================= -->
+
+    <section class="section">
+
+        <div class="section-label">
+            CASOS DE ESTUDIO
+        </div>
+
+
+        <div class="about-content">
+
+            <div>
+
+                <h2>
+                    Problemas reales,
+                    <span>soluciones de software.</span>
+                </h2>
+
+            </div>
+
+
+            <div class="about-text">
+
+                <p>
+                    Presento algunos de los proyectos que he desarrollado
+                    desde una perspectiva técnica: el problema que se
+                    buscaba resolver, el reto de desarrollo, las
+                    tecnologías utilizadas y el resultado obtenido.
+                </p>
+
+
+                <p>
+                    Cada proyecto representa una oportunidad para
+                    aplicar conocimientos de desarrollo de software,
+                    arquitectura, programación, bases de datos e
+                    integración de tecnologías.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <!-- CASO 01 -->
+
+            <div class="timeline-item">
+
+                <span class="timeline-number">
+                    01
+                </span>
+
+
+                <div>
+
+                    <small>
+                        POWER PLATFORM
+                    </small>
+
+                    <h3>
+                        HelpDesk Hospitalario
+                    </h3>
+
+                    <p>
+                        <strong>Reto:</strong>
+                        centralizar la gestión de solicitudes de
+                        soporte interno.
+                    </p>
+
+                    <p>
+                        <strong>Stack:</strong>
+                        Power Apps · Dataverse · Power Automate
+                    </p>
+
+                    <p>
+                        <strong>Resultado:</strong>
+                        solución para registrar, consultar, asignar
+                        y realizar seguimiento de tickets.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CASO 02 -->
+
+            <div class="timeline-item">
+
+                <span class="timeline-number">
+                    02
+                </span>
+
+
+                <div>
+
+                    <small>
+                        PYTHON
+                    </small>
+
+                    <h3>
+                        Sistema de gestión Mini Market
+                    </h3>
+
+                    <p>
+                        <strong>Reto:</strong>
+                        desarrollar una aplicación para centralizar
+                        ventas, inventario, clientes, pedidos y
+                        proveedores.
+                    </p>
+
+                    <p>
+                        <strong>Stack:</strong>
+                        Python · Tkinter · SQLite
+                    </p>
+
+                    <p>
+                        <strong>Resultado:</strong>
+                        aplicación de escritorio con módulos de
+                        gestión y persistencia de información.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CASO 03 -->
+
+            <div class="timeline-item">
+
+                <span class="timeline-number">
+                    03
+                </span>
+
+
+                <div>
+
+                    <small>
+                        WEB DEVELOPMENT
+                    </small>
+
+                    <h3>
+                        Portafolio Web
+                    </h3>
+
+                    <p>
+                        <strong>Reto:</strong>
+                        construir una presencia profesional orientada
+                        al desarrollo de software y Full Stack.
+                    </p>
+
+                    <p>
+                        <strong>Stack:</strong>
+                        HTML · CSS · JavaScript · Git · GitHub
+                    </p>
+
+                    <p>
+                        <strong>Resultado:</strong>
+                        sitio web profesional para presentar perfil,
+                        formación, experiencia y proyectos.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= HABILIDADES ================= -->
+
+    <section class="section">
+
+        <div class="section-label">
+            HABILIDADES
+        </div>
+
+
+        <div class="skills-list">
+
+            <div>
+                <span>01</span>
+                Software Development
+            </div>
+
+
+            <div>
+                <span>02</span>
+                Full Stack Development
+            </div>
+
+
+            <div>
+                <span>03</span>
+                Frontend Development
+            </div>
+
+
+            <div>
+                <span>04</span>
+                HTML & CSS
+            </div>
+
+
+            <div>
+                <span>05</span>
+                JavaScript
+            </div>
+
+
+            <div>
+                <span>06</span>
+                Python
+            </div>
+
+
+            <div>
+                <span>07</span>
+                Java
+            </div>
+
+
+            <div>
+                <span>08</span>
+                APIs REST
+            </div>
+
+
+            <div>
+                <span>09</span>
+                Bases de datos
+            </div>
+
+
+            <div>
+                <span>10</span>
+                SQL
+            </div>
+
+
+            <div>
+                <span>11</span>
+                Git & GitHub
+            </div>
+
+
+            <div>
+                <span>12</span>
+                Arquitectura de software
+            </div>
+
+
+            <div>
+                <span>13</span>
+                Power Apps
+            </div>
+
+
+            <div>
+                <span>14</span>
+                Dataverse
+            </div>
+
+
+            <div>
+                <span>15</span>
+                Power Automate
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PERFIL PROFESIONAL ================= -->
+
+    <section class="section about-section">
+
+        <div class="section-label">
+            PERFIL PROFESIONAL
+        </div>
+
+
+        <div class="about-content">
+
+            <div>
+
+                <h2>
+                    Software Developer
+                    <span>Full Stack.</span>
+                </h2>
+
+            </div>
+
+
+            <div class="about-text">
+
+                <p>
+                    Mi perfil combina fundamentos de Ingeniería de
+                    Sistemas con desarrollo de software y construcción
+                    de aplicaciones Full Stack.
+                </p>
+
+
+                <p>
+                    Puedo trabajar en diferentes capas de una
+                    aplicación: desde la construcción de interfaces
+                    frontend hasta la lógica de negocio, APIs y
+                    almacenamiento de datos.
+                </p>
+
+
+                <p>
+                    Mi objetivo profesional es continuar desarrollando
+                    soluciones de software, fortalecer mis conocimientos
+                    técnicos y participar en proyectos donde pueda
+                    aportar en el desarrollo de aplicaciones modernas,
+                    mantenibles y funcionales.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="cta">
+
+        <p>
+            ¿Quieres trabajar conmigo?
+        </p>
+
+
+        <h2>
+            Hablemos.
+        </h2>
+
+
+        <a
+            href="contacto.html"
+            class="button button-primary"
+        >
+            Contactarme
             <span>↗</span>
         </a>
 
-        <button
-            class="menu-button"
-            id="menuButton"
-            type="button"
-            aria-label="Abrir menú de navegación"
-            aria-controls="mobileMenu"
-            aria-expanded="false"
+    </section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div>
+        © 2026 Andrey Ricardo
+    </div>
+
+
+    <div class="footer-links">
+
+        <a
+            href="https://github.com/andrey300910"
+            target="_blank"
+            rel="noopener noreferrer"
         >
-            ☰
-        </button>
-
-    </header>
-
-
-    <!-- ================= MENU MOVIL ================= -->
-
-    <div
-        class="mobile-menu"
-        id="mobileMenu"
-    >
-
-        <a href="index.html">
-            00 — Inicio
+            GitHub
         </a>
 
-        <a href="blog.html">
-            01 — Blog
+
+        <a
+            href="https://www.linkedin.com/in/andrey-ricardo-silva-8a6061210"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            LinkedIn
         </a>
 
-        <a href="sobre-mi.html">
-            02 — Sobre mí
-        </a>
 
-        <a href="contacto.html">
-            03 — Contacto
+        <a
+            href="https://vercel.com/andrey300910s-projects"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Vercel
         </a>
 
     </div>
 
+</footer>
 
-    <!-- ================= CONTENIDO ================= -->
 
-    <main>
-
-        <section class="page-hero">
-
-            <div class="hero-number">
-                02 / 100
-            </div>
-
-            <div>
-
-                <p class="eyebrow">
-                    SOBRE MÍ
-                </p>
-
-                <h1>
-                    Código,
-                    <span>curiosidad y aprendizaje.</span>
-                </h1>
-
-                <p>
-                    Soy Andrey Ricardo, Desarrollador de Software
-                    interesado en construir soluciones digitales
-                    y continuar creciendo en el mundo de la tecnología.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- HISTORIA -->
-
-        <section class="section about-section">
-
-            <div class="section-label">
-                MI HISTORIA
-            </div>
-
-            <div class="about-content">
-
-                <div>
-
-                    <h2>
-                        Construir,
-                        <span>aprender y mejorar.</span>
-                    </h2>
-
-                </div>
-
-                <div class="about-text">
-
-                    <p>
-                        Mi enfoque está orientado al desarrollo de software,
-                        especialmente en la creación de aplicaciones,
-                        soluciones web, automatización y manejo de datos.
-                    </p>
-
-                    <p>
-                        Durante mi formación y desarrollo de proyectos
-                        he trabajado con diferentes tecnologías y
-                        herramientas, buscando comprender no solamente
-                        cómo funciona el código, sino también cómo utilizarlo
-                        para solucionar necesidades concretas.
-                    </p>
-
-                    <p>
-                        Actualmente continúo fortaleciendo mis conocimientos
-                        en desarrollo web, JavaScript, bases de datos,
-                        arquitectura de software y tecnologías modernas.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- FORMACIÓN -->
-
-        <section class="section">
-
-            <div class="section-label">
-                FORMACIÓN
-            </div>
-
-            <div class="timeline">
-
-                <div class="timeline-item">
-
-                    <span class="timeline-number">
-                        01
-                    </span>
-
-                    <div>
-
-                        <small>
-                            SENA
-                        </small>
-
-                        <h3>
-                            Desarrollo de aplicaciones con interfaz gráfica,
-                            manejo de eventos, clases y objetos: Java
-                        </h3>
-
-                    </div>
-
-                </div>
-
-
-                <div class="timeline-item">
-
-                    <span class="timeline-number">
-                        02
-                    </span>
-
-                    <div>
-
-                        <small>
-                            UNIVERSIDAD SIMÓN BOLÍVAR
-                        </small>
-
-                        <h3>
-                            VI Encuentro Internacional de Tendencias y
-                            Avances en Ingeniería y Diseño
-                        </h3>
-
-                    </div>
-
-                </div>
-
-
-                <div class="timeline-item">
-
-                    <span class="timeline-number">
-                        03
-                    </span>
-
-                    <div>
-
-                        <small>
-                            SENA
-                        </small>
-
-                        <h3>
-                            Diseño de soluciones de Internet de las cosas
-                        </h3>
-
-                    </div>
-
-                </div>
-
-
-                <div class="timeline-item">
-
-                    <span class="timeline-number">
-                        04
-                    </span>
-
-                    <div>
-
-                        <small>
-                            GOOGLE
-                        </small>
-
-                        <h3>
-                            Inteligencia Artificial y Productividad
-                        </h3>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- HABILIDADES -->
-
-        <section class="section">
-
-            <div class="section-label">
-                HABILIDADES
-            </div>
-
-            <div class="skills-list">
-
-                <div>
-                    <span>01</span>
-                    Desarrollo Web
-                </div>
-
-                <div>
-                    <span>02</span>
-                    Python
-                </div>
-
-                <div>
-                    <span>03</span>
-                    JavaScript
-                </div>
-
-                <div>
-                    <span>04</span>
-                    Java
-                </div>
-
-                <div>
-                    <span>05</span>
-                    Bases de datos
-                </div>
-
-                <div>
-                    <span>06</span>
-                    APIs
-                </div>
-
-                <div>
-                    <span>07</span>
-                    Automatización
-                </div>
-
-                <div>
-                    <span>08</span>
-                    Git & GitHub
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- CTA -->
-
-        <section class="cta">
-
-            <p>
-                ¿Quieres trabajar conmigo?
-            </p>
-
-            <h2>
-                Hablemos.
-            </h2>
-
-            <a
-                href="contacto.html"
-                class="button button-primary"
-            >
-                Contactarme
-                <span>↗</span>
-            </a>
-
-        </section>
-
-    </main>
-
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer class="footer">
-
-        <div>
-            © 2026 Andrey Ricardo
-        </div>
-
-        <div class="footer-links">
-
-            <a
-                href="https://github.com/andrey300910"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                GitHub
-            </a>
-
-            <a
-                href="https://www.linkedin.com/in/andrey-ricardo-silva-8a6061210"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                LinkedIn
-            </a>
-
-            <a
-                href="https://vercel.com/andrey300910s-projects"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Vercel
-            </a>
-
-        </div>
-
-    </footer>
-
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
+```
 
 </body>
 
 </html>
-```
